@@ -7,7 +7,7 @@
 3. Rutvik Patel
 4. Shailja Kartik
  
-### **Advisor:** Dr. Stas Tiomkin 
+**Advisor:** Dr. Stas Tiomkin 
 
 
 ## **Project Architecture**
