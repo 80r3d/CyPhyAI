@@ -1,3 +1,4 @@
+import math
 import time
 from spherov2.types import Color
 from spherov2 import scanner
@@ -5,6 +6,8 @@ from spherov2.sphero_edu import SpheroEduAPI, EventType
 from spherov2.toy.bolt import BOLT
 from spherov2.types import Color
 import threading
+
+from spherov2.commands.power import Power
 '''
 Define Custom APIs in this file
 '''
@@ -53,9 +56,15 @@ def connect_to_bolt(toy,droids):
         
 def run_bolt(droid):
     droid.set_heading(0)
+    x = droid.get_location()['x']
+    y = droid.get_location()['y']
+    print(str(x) + ' ' + str(y))
     droid.roll(0,255,2)
     time.sleep(1)
     droid.roll(180,255,2)
+    x = droid.get_location()['x']
+    y = droid.get_location()['y']
+    print(str(x) + ' ' + str(y))
 
 
 def run_bolts(toys):
