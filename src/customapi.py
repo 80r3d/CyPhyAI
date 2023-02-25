@@ -39,8 +39,8 @@ def connect_to_bolt(toy,droids):
             action = "up"
             droid.set_main_led(Color(r=0, g=255, b=0))
             droids.append(droid)
-            run_bolt(droid)
-            # droid.register_event(EventType.on_charging, customapi.on_charging)
+            run_bolt(droid, toy.name)
+            # droid.register_event(EventType.on_collision, customapi.on_collision)
             # droid.register_event(EventType.on_not_charging, customapi.on_not_charging)
             # time.sleep(2)           
             
@@ -54,17 +54,30 @@ def connect_to_bolt(toy,droids):
 
 
         
-def run_bolt(droid):
+def run_bolt(droid, name):
     droid.set_heading(0)
     x = droid.get_location()['x']
     y = droid.get_location()['y']
-    print(str(x) + ' ' + str(y))
-    droid.roll(0,255,2)
-    time.sleep(1)
-    droid.roll(180,255,2)
+    print('Init pos for Toy ' + name + ' ' + str(x) + ' ' + str(y))
+    # droid.roll(0,255,4)
+    # time.sleep(1)
+    # droid.roll(180,255,4)
+    droid.roll(0,150,0.25)
+    time.sleep(0.01)
+    droid.roll(60,150,0.25)
+    time.sleep(0.01)
+    droid.roll(120,150,0.25)
+    time.sleep(0.01)
+    droid.roll(180,150,0.25)
+    time.sleep(0.01)
+    droid.roll(240,150,0.25)
+    time.sleep(0.01)
+    droid.roll(300,150,0.25)
+    time.sleep(0.01)
+    droid.roll(360,150,0.25)
     x = droid.get_location()['x']
     y = droid.get_location()['y']
-    print(str(x) + ' ' + str(y))
+    print('Final pos for Toy ' + name + ' ' + str(x) + ' ' + str(y))
 
 
 def run_bolts(toys):

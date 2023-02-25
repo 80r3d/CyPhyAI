@@ -11,7 +11,7 @@ import customapi
 import threading
 
 
-toys = scanner.find_toys(toy_names=['SB-0613','SB-3D46','SB-B5BA'], toy_types=[BOLT])
+toys = scanner.find_toys(toy_names=['SB-0613','SB-C54E','SB-B5BA'], toy_types=[BOLT])
 
 print(toys)     
 
