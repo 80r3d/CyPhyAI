@@ -38,3 +38,6 @@ Steps:
 3) Select the python interpretor to be python 3.11 in VS Code
 4) Execute the commands: pip install speherov2 and pip install bleak in the CyPhyAI folder
 5) And then run the test.py file using the run button on the top right of VS Code
+
+Github Reference for Constants
+https://github.com/sphero-inc/sphero-sdk-raspberrypi-python/tree/master/sphero_sdk/common/enums
