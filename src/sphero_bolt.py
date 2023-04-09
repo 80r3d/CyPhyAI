@@ -2,6 +2,8 @@ import struct
 from sphero_constants import *
 from bleak import BleakClient
 from bleak import BleakScanner
+import asyncio
+from datetime import datetime, timedelta
 
 class BoltScan:
     def __init__(self):
@@ -225,19 +227,36 @@ class SpheroBolt:
                         commID=UserIOCommandIDs["printChar"],
                         targetId=0x012,
                         data=[red, green, blue, ord(char)])
+        
+    async def roll(self, speed, heading, time=None):
+        """        Rolls the device at a specified speed (int between 0 and 255)
+        heading (int between 0 and 359) and time (int in seconds).
+        Data is format [speed, heading byte 1, heading byte 2,
+        direction (0-forward, 1-back)].
+        Parameters
+        ----------
+        speed : int
+            Speed of the bot.
+        heading : int
+            Heading of the bot.
+        time : int, optional
+            Let the bot drive for an amount of time, by default None.
+        """
 
-    async def roll(self, speed=None, heading=None):
-        """
-        Rolls the device at a specified speed (int between 0 and 255)
-        and heading (int between 0 and 359).
-        Data is format [speed, heading byte 1, heading byte 2, direction (0-forward, 1-back)].
-        """
-        print("[SEND {}] Rolling with speed {} and heading {}".format(self.sequence, speed, heading))
-        await self.send(characteristic=self.API_V2_characteristic,
-                        devID=DeviceID["driving"],
-                        commID=DrivingCommands["driveWithHeading"],
-                        targetId=0x012,
-                        data=[speed, (heading >> 8) & 0xff, heading & 0xff, 0])
+        if time:
+            run_command_till = datetime.now() + timedelta(seconds=time)
+            while datetime.now() + timedelta(seconds=1) < run_command_till:
+                await self.roll(speed, heading)
+        else:
+            # print("[SEND {}] Rolling with speed {} and heading {}".format(
+            #     self.sequence, speed, heading))
+            await self.send(
+                characteristic=self.API_V2_characteristic,
+                devID=DeviceID["driving"],
+                commID=DrivingCommands["driveWithHeading"],
+                targetId=0x012,
+                data=[speed, (heading >> 8) & 0xff, heading & 0xff, 0]
+            )
 
     async def resetYaw(self):
         print("[SEND {}] Resetting yaw".format(self.sequence))

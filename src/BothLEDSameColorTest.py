@@ -42,7 +42,7 @@ async def run(address):
 
 
     for bolt in BOLTS:
-        await bolt.roll(50,0)
+        await bolt.roll(100, 0, 2)
 
 
 if __name__ == "__main__":
@@ -55,4 +55,4 @@ if __name__ == "__main__":
     while True:
         toy_number = int(input("Select the sphero to control: "))
         toy = BOLTS[toy_number]
-        loop.run_until_complete(toy.roll(50,0))
+        loop.run_until_complete(toy.roll(100, 0, 2))
