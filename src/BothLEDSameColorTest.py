@@ -55,4 +55,4 @@ if __name__ == "__main__":
     while True:
         toy_number = int(input("Select the sphero to control: "))
         toy = BOLTS[toy_number]
-        loop.run_until_complete(toy.roll(100, 0, 2))
+        loop.run_until_complete(toy.roll(255, 0, 5))

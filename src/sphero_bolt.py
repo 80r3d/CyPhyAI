@@ -274,3 +274,22 @@ class SpheroBolt:
         num = int(bits, 2).to_bytes(len(bits) // 8, byteorder='little')
         num = struct.unpack('f', num)[0]
         return num
+    
+    async def startIRFollow(self,near_channel=0,far_channel=1):
+        print("[SEND {}] Starting IR streaming".format(self.sequence))
+        await self.send(characteristic=self.API_V2_characteristic,
+                        devID=DeviceID["sensor"],
+                        commID=SensorCommandIds["startIRFollow"],
+                        targetId=0x012,
+                        data=[near_channel,far_channel])
+        
+    async def startIRBroadCast(self,near_channel=0,far_channel=1):
+        print("[SEND {}] Starting IR streaming".format(self.sequence))
+        await self.send(characteristic=self.API_V2_characteristic,
+                        devID=DeviceID["sensor"],
+                        commID=SensorCommandIds["startIRBroadCast"],
+                        targetId=0x012,
+                        data=[near_channel,far_channel])
+    
+    
+   
