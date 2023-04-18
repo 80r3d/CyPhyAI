@@ -15,7 +15,16 @@ UserIOCommandIDs = {"allLEDs": 28,
                     "matrixPix": 45,
                     "printChar": 66}
 
-SensorCommandIds = {"calibrateToNorth": 37}
+SensorCommandIds = {"calibrateToNorth": 37,
+                    "startIRBroadcast": 0x27,
+                    "startIRFollow": 0x28,
+                    "stopIRBroadcast": 0x29,
+                    "stopIRFollow": 0x32,
+                    "startStreamingService": 0x3A,
+                    "stopStreamingService": 0x3B,
+                    "clearStreamingService": 0x3C,
+                    "streamingServiceDataNotify": 0x3D,
+                    }
 
 PowerCommandIDs = {"wake": 13}
 
