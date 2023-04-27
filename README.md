@@ -37,4 +37,6 @@ Steps:
 4) Search for Python: Create Environment and follow the prompts to create a new environment
 3) Select the python interpretor to be python 3.11 in VS Code
 4) Execute the commands: pip install speherov2 and pip install bleak in the CyPhyAI folder
-5) And then run the test.py file using the run button on the top right of VS Code
+5) Replace sensor.py in .venv/lib/python3.11/site-packages/spherov2/commands with the file sensor.py in replace folder.
+6) Replace sphero_edu.py in .venv/lib/python3.11/site-packages/spherov2/ with the file sphero_edu.py in replace folder.
+7) And then run the BoltTest.py file using the run button on the top right of VS Code
