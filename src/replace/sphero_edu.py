@@ -914,3 +914,8 @@ class SpheroEduAPI:
             self.__listeners[event_type].add(listener)
         else:
             del self.__listeners[event_type]
+
+    def get_battery_voltage_states(self):
+        """Returns the battery voltage states 
+        volts."""
+        return ToyUtil.get_battery_voltage_states(self.__toy)
