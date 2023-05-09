@@ -39,4 +39,5 @@ Steps:
 4) Execute the commands: pip install speherov2 and pip install bleak in the CyPhyAI folder
 5) Replace sensor.py in .venv/lib/python3.11/site-packages/spherov2/commands with the file sensor.py in replace folder.
 6) Replace sphero_edu.py in .venv/lib/python3.11/site-packages/spherov2/ with the file sphero_edu.py in replace folder.
-7) And then run the BoltTest.py file using the run button on the top right of VS Code
+7) Replace utils.py in .venv/lib/python3.11/site-packages/spherov2/ with the file utils.py in replace folder.
+8) And then run the BoltTest.py file using the run button on the top right of VS Code
