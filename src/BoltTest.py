@@ -63,7 +63,9 @@ if __name__ == "__main__":
     data = {}
     for bot in bots:
         data[bots[bot]] = []
-        
+    
+    broadcaster_num = int(input("Enter the bot number to be the broadcaster: "))
+    broadcaster = droids[broadcaster_num]
   
     while True:
         num = int(input("Enter a number: "))
@@ -75,8 +77,13 @@ if __name__ == "__main__":
         else:
             for droid in droids:
                 droid.stop_roll(0)
-            droids[num].raw_motor(255,255, 4)
-            # droids[num].get_acceleration()
+                if droid != broadcaster:
+                    droid.start_ir_follow(0, 1)
+            selected_droid = droids[num]
+            selected_droid.roll(255, 255, 4)
+            # Check if the selected bot is the broadcaster
+            if num == broadcaster_num:
+                selected_droid.start_ir_broadcast(0, 1)
             tempData = {}
             tempData['acceleration'] = droids[num].get_acceleration()
             tempData['vertical acceleration'] = droids[num].get_vertical_acceleration()
@@ -92,4 +99,4 @@ if __name__ == "__main__":
             json_data = json.dumps(data)
             x = droids[num].get_battery_voltage_states()
             print(x.value)
-            # print(json_data)
+            print(json_data)
