@@ -12,6 +12,9 @@ Steps to recreate the project:
 9) When program runs, it will prompt the user to enter options to send predefined policies as commands to the Sphero Bolts.
 10) User can enter either 1, 2, or 3, to send the corresponding policy to the Sphero Bolts i.e. 1 for moving multiple Sphero's in a square pattern, 2 for moving multiple Sphero's in a zigzag pattern, and 3 for registering one Sphero as the leader and other Sphero's as its followers. To quit the program, user can enter 10.
 
+**All the required information about most of the apis used in the code can be found at :**
+https://spherov2.readthedocs.io/en/latest/sphero_edu.html
+
 
 **Things changed after we modified the spherov2 library:**
 
