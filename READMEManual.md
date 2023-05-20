@@ -16,9 +16,9 @@
 https://spherov2.readthedocs.io/en/latest/sphero_edu.html
 
 
-**Things changed after we modified the spherov2 library:**
+### Things changed after we modified the spherov2 library:
 
-**How to connect spheros:**
+#### How to connect spheros:
 
 ```python
 toys = find_toys(toy_names=['SB-C54E', 'SB-3D46', 'SB-EE23'], toy_types=[BOLT]) 
@@ -28,7 +28,7 @@ for toy in toys:
         connect_to_bolt(toy, droids,bots)
 ```
 
-The function to connect spheros:
+#### The function to connect spheros:
 
 ```python
 def connect_to_bolt(toy, droids,bots):
@@ -56,7 +56,7 @@ def connect_to_bolt(toy, droids,bots):
 ```
 
 
-### How to access other apis
+#### How to access other apis
 Once you have the list of connected spheros in the list droids, all the spherov2 APIs are accesible:
 
 E.g.
