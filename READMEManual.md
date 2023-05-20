@@ -1,4 +1,4 @@
-##Steps to recreate the project:
+### Steps to recreate the project:
 1) Clone the CyPhyAI repository from github and open it using VS Codea using the NVIDEA Jetson Xavier NX
 2) Download and Install Python 3.11 or latest
 3) (If setting up the first time)In VS Code navigate to the View dropdown on the toolbar and select Command Palette
