@@ -12,7 +12,7 @@ Steps to recreate the project:
 9) When program runs, it will prompt the user to enter options to send predefined policies as commands to the Sphero Bolts.
 10) User can enter either 1, 2, or 3, to send the corresponding policy to the Sphero Bolts i.e. 1 for moving multiple Sphero's in a square pattern, 2 for moving multiple Sphero's in a zigzag pattern, and 3 for registering one Sphero as the leader and other Sphero's as its followers. To quit the program, user can enter 10.
 
-**All the required information about most of the apis used in the code can be found at :**
+**All the required information about most of the APIs used in the code can be found at :**
 https://spherov2.readthedocs.io/en/latest/sphero_edu.html
 
 
@@ -57,7 +57,7 @@ def connect_to_bolt(toy, droids,bots):
 
 
 **How to access other apis**
-Once you have the list of connected spheros in the list droids, all the spherov2 apis are accesible:
+Once you have the list of connected spheros in the list droids, all the spherov2 APIs are accesible:
 
 E.g.
     droid[i].the_api_you_want_to_use() where 'i' be the sphero you want to call api on.
