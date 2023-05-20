@@ -65,3 +65,36 @@ E.g.
 ```
    where 'i' be the sphero you want to call api on.
 
+**Sample Policies**
+
+```python
+def run_in_square(droid): 
+    '''Run in a square.'''
+
+    droid.roll(0,80,0.25)
+    time.sleep(2)
+    droid.roll(90,80,0.25)
+    time.sleep(2)
+    droid.roll(180,80,0.25)
+    time.sleep(2)
+    droid.roll(270,80,0.25)
+    time.sleep(2)
+
+def run_zigzag(droid):
+    '''Run in a zigzag.'''
+
+    droid.roll(0,80,0.25)
+    time.sleep(0.3)
+    droid.roll(30,80,0.25)
+    time.sleep(0.3)
+    droid.roll(0,80,0.25)
+    time.sleep(0.3)
+    droid.roll(-30,80,0.25)
+    time.sleep(0.3)
+    droid.roll(0,80,0.25)
+    time.sleep(0.3)
+    droid.roll(30,80,0.25)
+    time.sleep(0.3)
+    droid.roll(-30,80,0.25)
+```
+
