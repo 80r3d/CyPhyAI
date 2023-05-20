@@ -17,7 +17,7 @@ Steps to recreate the project:
 
 **How to connect spheros:**
 
-```
+```python
 toys = find_toys(toy_names=['SB-C54E', 'SB-3D46', 'SB-EE23'], toy_types=[BOLT]) 
 
 for toy in toys:
@@ -27,7 +27,7 @@ for toy in toys:
 
 The function to connect spheros:
 
-```
+```python
 def connect_to_bolt(toy, droids,bots):
     '''Connect to the bolt toy.'''
 
