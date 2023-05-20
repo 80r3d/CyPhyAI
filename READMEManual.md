@@ -98,3 +98,5 @@ def run_zigzag(droid):
     droid.roll(-30,80,0.25)
 ```
 
+# The time parameter in ```roll(heading,speed,time)``` has become ineffective as we have to remove it from the core to establish and keep  multiple spheros connected with the host.
+
