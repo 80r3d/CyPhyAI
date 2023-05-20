@@ -56,7 +56,7 @@ def connect_to_bolt(toy, droids,bots):
 ```
 
 
-**How to access other apis**
+### How to access other apis
 Once you have the list of connected spheros in the list droids, all the spherov2 APIs are accesible:
 
 E.g.
