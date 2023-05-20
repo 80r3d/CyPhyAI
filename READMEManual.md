@@ -20,7 +20,7 @@ https://spherov2.readthedocs.io/en/latest/sphero_edu.html
 
 **How to connect spheros:**
 
-```pyhon
+```python
 toys = find_toys(toy_names=['SB-C54E', 'SB-3D46', 'SB-EE23'], toy_types=[BOLT]) 
 
 for toy in toys:
