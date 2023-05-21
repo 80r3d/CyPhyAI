@@ -100,7 +100,7 @@ def run_zigzag(droid):
 
 ### NOTE: 
 
-**The time parameter in ```roll(heading,speed,time)``` has become ineffective as we have to remove it from the core to establish and keep  multiple spheros connected with the host.**
+**The time parameter in ```roll(heading,speed,time)``` has become ineffective as we have to remove it from the core to establish and keep multiple spheros connected with the host. So the sphero witll not automatically stop after given time.**
 
 **To stop the sphero use ```stop_roll(0)``` command.**
 
