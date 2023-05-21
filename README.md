@@ -36,7 +36,7 @@ Steps:
 3) (If setting up the first time)In VS Code navigate to the View dropdown on the toolbar and select Command Palette
 4) Search for Python: Create Environment and follow the prompts to create a new environment
 3) Select the python interpretor to be python 3.11 in VS Code
-4) Execute the commands: pip install -r requirements.txt in the CyPhyAI folder
+4) Execute the commands: ```pip install bleak``` and ```pip install spherov2``` in the CyPhyAI folder
 5) Replace sensor.py in .venv/lib/python3.11/site-packages/spherov2/commands with the file sensor.py in replace folder.
 6) Replace sphero_edu.py in .venv/lib/python3.11/site-packages/spherov2/ with the file sphero_edu.py in replace folder.
 7) Replace utils.py in .venv/lib/python3.11/site-packages/spherov2/ with the file utils.py in replace folder.
