@@ -8,9 +8,10 @@
 5) Replace **sensor.py** in **.venv/lib/python3.11/site-packages/spherov2/commands with the file sensor.py** in replace folder.
 6) Replace **sphero_edu.py** in **.venv/lib/python3.11/site-packages/spherov2/** with the file sphero_edu.py in replace folder.
 7) Replace **utils.py** in **.venv/lib/python3.11/site-packages/spherov2/ with the file utils.py** in replace folder.
-8) And then run the **BoltTest.py** file using the run button on the top right of VS Code. This file is an example of how to use the Sphero Bolt API to control the Sphero Bolt.
-9) When program runs, it will prompt the user to enter options to send predefined policies as commands to the Sphero Bolts.
-10) User can enter either 1, 2, or 3, to send the corresponding policy to the Sphero Bolts i.e. 1 for moving multiple Sphero's in a square pattern, 2 for moving multiple Sphero's in a zigzag pattern, and 3 for registering one Sphero as the leader and other Sphero's as its followers. To quit the program, user can enter 10.
+8) Make sure you have turned on the bluetooth of the host machine(on which the code is running).
+9) And then run the **BoltTest.py** file using the run button on the top right of VS Code. This file is an example of how to use the Sphero Bolt API to control the Sphero Bolt.
+10) When program runs, it will prompt the user to enter options to send predefined policies as commands to the Sphero Bolts.
+11) User can enter either 1, 2, or 3, to send the corresponding policy to the Sphero Bolts i.e. 1 for moving multiple Sphero's in a square pattern, 2 for moving multiple Sphero's in a zigzag pattern, and 3 for registering one Sphero as the leader and other Sphero's as its followers. To quit the program, user can enter 10.
 
 **All the required information about most of the APIs used in the code can be found at :**
 https://spherov2.readthedocs.io/en/latest/sphero_edu.html
