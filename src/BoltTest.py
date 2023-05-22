@@ -1,7 +1,14 @@
 #for spherov2 api reference visit: https://spherov2.readthedocs.io/en/latest/sphero_edu.html
 
+'''
+Project : CyPhyAI (CLOUD INFRASTRUCTURE)
+This file is created and modified by CLOUD TEAM for purpose of demonstartion of integration with cloud
+'''
+
+
 from enum import IntEnum
 import time
+from unittest import result
 from spherov2.scanner import *
 from spherov2.sphero_edu import EventType, SpheroEduAPI
 from spherov2.types import Color
@@ -22,8 +29,9 @@ class BatteryVoltageStates(IntEnum):
 
 def get_all_data(droid):
     '''Get all data from the droid.'''
-
+    print("The data in droid is ", droid)
     data = {}
+    
     data['acceleration'] = droid.get_acceleration()
     data['vertical acceleration'] = droid.get_vertical_acceleration()
     data['orientation'] = droid.get_orientation()
@@ -69,14 +77,22 @@ def connect_to_bolt(toy, droids,bots):
 def run_in_square(droid): 
     '''Run in a square.'''
 
-    droid.roll(0,80,0.25)
+    droid.roll(0,40,0.25)
     time.sleep(2)
-    droid.roll(90,80,0.25)
+    droid.roll(90,40,0.25)
     time.sleep(2)
-    droid.roll(180,80,0.25)
+    droid.roll(180,40,0.25)
     time.sleep(2)
-    droid.roll(270,80,0.25)
+    droid.roll(270,40,0.25)
     time.sleep(2)
+
+
+def run_in_spin(droid): 
+    '''Run in a spin.'''
+
+    droid.spin(360, 0.2)
+    time.sleep(5)
+
 
 def run_zigzag(droid):
     '''Run in a zigzag.'''
@@ -139,39 +155,136 @@ def main():
 
     print("Testing Starting...")
     print("Connecting to Bolt...")
-    toys = find_toys(toy_names=['SB-C54E', 'SB-3D46', 'SB-EE23'], toy_types=[BOLT]) #find toys is a spherov2 api function
+    toys = find_toys(toy_names=['SB-3D46'], toy_types=[BOLT]) #find toys is a spherov2 api function
     droids = []
     bots = {}
     for toy in toys:
         print("toy: " + toy.name)
-
         connect_to_bolt(toy, droids,bots)
     
     print(bots)
+    
 
-
-if __name__ == "__main__":
-    '''Main function.'''
-
-    main()
-
+def sampleapitest():
+    global droids, bots, data
+    print("Testing Starting...")
+    print("Connecting to Bolt...")
+    toys = find_toys(toy_names=['SB-3D46'], toy_types=[BOLT]) #find toys is a spherov2 api function
+    droids = []
+    bots = {}
+    for toy in toys:
+        print("toy: " + toy.name)
+        connect_to_bolt(toy, droids,bots)
     processs = []
     data = {}
 
     for bot in bots:
         data[bots[bot]] = []
     
+    for droid in droids:
+        run_in_square(droid)
+        droid.stop_roll(0)
+        data[bots[droids.index(droid)]].append(get_all_data(droid))
+    return "Now Moving!"
+
+def getData(robotId):
+    global droids, bots, data
+    print("Testing Starting...")
+    print("Connecting to Bolt...")
+    toys = find_toys(toy_names=[robotId], toy_types=[BOLT]) #find toys is a spherov2 api function
+    droids = []
+    bots = {}
+
+    for toy in toys:
+        print("toy: " + toy.name)
+        connect_to_bolt(toy, droids,bots)
+    results = []
+    for droid in droids:
+        results.append(get_all_data(droid))
+
+    return results
+
+def moveWithPredefinedPath(robotId,path_type):
+    global droids, bots, data
+    print("Testing Starting...")
+    print("Connecting to Bolt...")
+    toys = find_toys(toy_names=[robotId], toy_types=[BOLT]) #find toys is a spherov2 api function
+    droids = []
+    bots = {}
+
+    for toy in toys:
+        print("toy: " + toy.name)
+        connect_to_bolt(toy, droids,bots)
+
+    for droid in droids:
+        if path_type == 'zigzag':
+            run_zigzag(droid)
+            droid.stop_roll(0)
+            droid.__exit__(None, None, None)
+
+
+        elif path_type == 'square':
+            run_in_square(droid)
+            droid.stop_roll(0)
+            droid.__exit__(None, None, None)
+
+        elif path_type == 'spin':
+            run_in_spin(droid)
+            droid.stop_roll(0)
+            droid.__exit__(None, None, None)
+
+        else :
+            False
+    return True
+
+
+def moveWithSpeedAndAngle(robotId,angle,speed,time):
+    global droids, bots, data
+    print("Testing Starting...")
+    print("Connecting to Bolt...")
+    toys = find_toys(toy_names=[robotId], toy_types=[BOLT]) #find toys is a spherov2 api function
+    droids = []
+    bots = {}
     
-    while True:
-        num = int(input("Enter a custom policy number: (1) Square (2) Zigzag (3) IR Follow (10) Exit:"))
-        if (num == 10):
-            for droid in droids:
-                droid.stop_roll(0)
-                droid.__exit__(None, None, None)
-            break
-        else:
+
+    for toy in toys:
+        print("toy: " + toy.name)
+        connect_to_bolt(toy, droids,bots)
+
+    for droid in droids:
+        droid.roll(angle,speed,time)
+        time.sleep(1)
+        droid.stop_roll(0)
+        droid.__exit__(None, None, None)
+
+    return True
+
+if __name__ == "__main__":
+    '''Main function.'''
+    sampleapitest()
+    # main()
+
+    # processs = []
+    # data = {}
+
+    # for bot in bots:
+    #     data[bots[bot]] = []
+    
+    # for droid in droids:
+    #     run_in_square(droid)
+    #     droid.stop_roll(0)
+    #     data[bots[droids.index(droid)]].append(get_all_data(droid))
+
+    # while True:
+    #     num = int(input("Enter a custom policy number: (1) Square (2) Zigzag (3) IR Follow (10) Exit:"))
+    #     if (num == 10):
+    #         for droid in droids:
+    #             droid.stop_roll(0)
+    #             droid.__exit__(None, None, None)
+    #         break
+    #     else:
            
-            for droid in droids:
-                predefined_policy(droids,droid,num)
-                droid.stop_roll(0)
-                data[bots[droids.index(droid)]].append(get_all_data(droid))
+    #         for droid in droids:
+    #             predefined_policy(droids,droid,num)
+    #             droid.stop_roll(0)
+    #             data[bots[droids.index(droid)]].append(get_all_data(droid))
