@@ -40,4 +40,5 @@ Steps:
 5) Replace sensor.py in .venv/lib/python3.11/site-packages/spherov2/commands with the file sensor.py in replace folder.
 6) Replace sphero_edu.py in .venv/lib/python3.11/site-packages/spherov2/ with the file sphero_edu.py in replace folder.
 7) Replace utils.py in .venv/lib/python3.11/site-packages/spherov2/ with the file utils.py in replace folder.
-8) And then run the BoltTest.py file using the run button on the top right of VS Code
+8) Make sure you have turned on the bluetooth of the host machine(on which the code is running).
+9) And then run the BoltTest.py file using the run button on the top right of VS Code
